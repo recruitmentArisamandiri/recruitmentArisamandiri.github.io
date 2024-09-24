@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Seleksi</title>
     <style>
-        /* Atur body dengan margin nol dan tinggi penuh layar */
         body, html {
             margin: 0;
             padding: 0;
@@ -13,27 +12,24 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Atur gambar latar belakang */
         .background {
             position: relative;
             height: 100%;
-            background-image: url('https://www.arisamandiri.com/assets/img/assets/bgAbout.jpg'); /* Ganti URL ini dengan gambar Anda */
+            background-image: url('https://www.arisamandiri.com/assets/img/assets/bgAbout.jpg');
             background-size: cover;
             background-position: center;
         }
 
-        /* Layer gradasi hitam transparan di atas gambar */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Gradasi transparan hitam */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
             z-index: 1;
         }
 
-        /* Headline di bagian atas */
         .headline {
             position: absolute;
             top: 20px;
@@ -44,7 +40,6 @@
             z-index: 2;
         }
 
-        /* Container untuk tombol */
         .content {
             position: absolute;
             top: 50%;
@@ -57,7 +52,6 @@
             flex-wrap: wrap;
         }
 
-        /* Tombol dengan logo */
         .button {
             background-color: rgba(255, 255, 255, 0.7);
             border: none;
@@ -71,7 +65,7 @@
             justify-content: center;
             transition: background-color 0.3s ease;
             margin: 10px;
-            width: 30%;
+            width: 25%;
             height: auto;
         }
 
@@ -79,56 +73,59 @@
             background-color: #f0f0f0;
         }
 
-        /* Atur logo dalam tombol */
         .button img {
             width: 75%;
             height: auto;
         }
 
-        /* Deskripsi di bawah tombol */
-        .button p {
+        /* Mengatur teks agar tetap satu baris dan proporsional */
+        .button h2 {
             margin-top: 10px;
-            font-size: 1rem;
+            font-size: 1.5vw; /* Menggunakan vw agar responsif */
             text-align: center;
             color: #333;
+            white-space: nowrap; /* Mencegah teks wrapping (membungkus) */
+            overflow: hidden; /* Jika teks terlalu panjang, sembunyikan overflow */
+            text-overflow: ellipsis; /* Tambahkan ellipsis (...) jika teks terlalu panjang */
         }
 
-/* Responsif untuk layar kecil (HP) */
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 20px;
-        align-items: center; /* Membuat konten di tengah */
-    }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+                align-items: center;
+            }
 
-    .button {
-        display: flex; /* Mengubah tombol menjadi flex row */
-        flex-direction: row; /* Susun gambar dan teks sejajar secara horizontal */
-        align-items: center;
-        width: 80%; /* Lebar tombol pada HP */
-        justify-content: flex-start; /* Teks dan gambar rata kiri */
-        margin-bottom: 15px;
-        padding: 10px;
-    }
+            .button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 80%;
+                justify-content: flex-start;
+                margin-bottom: 15px;
+                padding: 10px;
+            }
 
-    .button img {
-        width: 20%; /* Ukuran logo lebih kecil di HP */
-        margin-right: 20px; /* Jarak antara logo dan teks */
-        height: auto;
-    }
+            .button img {
+                width: 20%;
+                margin-right: 20px;
+                height: auto;
+            }
 
-    .button h2 {
-        font-size: 1.2rem; /* Ukuran teks yang lebih kecil di HP */
-        margin: 0; /* Hilangkan margin pada teks untuk kesejajaran */
-    }
+            .button h2 {
+                font-size: 3.5vw; /* Ukuran teks yang responsif di layar kecil */
+                margin: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
-    .headline {
-        font-size: 2rem;
-        margin-bottom: 30px; /* Jarak headline dari tombol */
-    }
-}
-
+            .headline {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -142,24 +139,40 @@
 
         <!-- Tombol berlogo di depan background -->
         <div class="content">
-            <!-- Tombol 1: Persyaratan Berkas -->
-            <button class="button">
+            <!-- Tombol 1: Tes Arisamandiri 1.0 -->
+            <div class="button" id="button1">
                 <img src="https://www.arisamandiri.com/assets/img/assets/logoAM.png" alt="Logo A">
                 <h2>Tes Arisamandiri 1.0.</h2>
-            </button>
+            </div>
 
-            <!-- Tombol 2: Pelaksanaan Tes -->
-            <button class="button">
+            <!-- Tombol 2: Tes Arisamandiri 2.0 -->
+            <div class="button" id="button2">
                 <img src="https://www.arisamandiri.com/assets/img/assets/logoAM.png" alt="Logo B">
                 <h2>Tes Arisamandiri 2.0.</h2>
-            </button>
+            </div>
 
-            <!-- Tombol 3: Absensi Masuk Kerja -->
-            <button class="button">
+            <!-- Tombol 3: Tes Arisamandiri 3.0 -->
+            <div class="button" id="button3">
                 <img src="https://www.arisamandiri.com/assets/img/assets/logoAM.png" alt="Logo C">
                 <h2>Tes Arisamandiri 3.0.</h2>
-            </button>
+            </div>
         </div>
     </div>
+
+    <!-- Script untuk handle click dan buka link -->
+    <script>
+        // Menambahkan event listener pada masing-masing tombol
+        document.getElementById('button1').addEventListener('click', function() {
+            window.open('https://recruitmentarisamandiri.github.io/kuis1', '_blank');
+        });
+
+        document.getElementById('button2').addEventListener('click', function() {
+            window.open('https://recruitmentarisamandiri.github.io/kuis2', '_blank');
+        });
+
+        document.getElementById('button3').addEventListener('click', function() {
+            window.open('https://recruitmentarisamandiri.github.io/kuis3', '_blank');
+        });
+    </script>
 </body>
 </html>
