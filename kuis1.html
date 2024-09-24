@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Futuristik</title>
+    <style>
+        /* Mengatur body dengan margin nol dan font yang futuristik */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a; /* Warna latar belakang gelap */
+            color: #f0f0f0; /* Warna teks putih */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Styling untuk header */
+        .header {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #00ffcc; /* Warna teks futuristik */
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #d1d1d1;
+        }
+
+        /* Container untuk iframe Google Form */
+        .quiz-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #292929; /* Background kotak form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Iframe styling */
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .quiz-container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            iframe {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header kuis -->
+    <div class="header">
+        <h1>Tes Arisamandiri 1.0.</h1>
+        <p>Pahami dan ikuti petunjuk yang ada sebelum mengerjakan...</p>
+    </div>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeQUj8VFmv4BJEIw-xAAiSaB8xm05AAGfLLdjOOwxC0ejE_yw/viewform?embedded=true" width="100%" height="22980" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+
+ </body>
+</html>
