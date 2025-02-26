@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "PASTE_WEB_APP_URL_HERE"; // Ganti dengan URL Web App dari Google Apps Script
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxfXpNsbvPw2DVV__gUYA7uXHerbZRk2r1kW9g28lM4mrXaArJ02Pw4a0TG6D1tFmLkw/exec"; // Ganti dengan URL Web App dari Google Apps Script
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
