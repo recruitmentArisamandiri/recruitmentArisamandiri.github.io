@@ -1,0 +1,126 @@
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('bgAbout.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 800px;
+            height: 450px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+        .left {
+            background: maroon;
+            color: white;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .left i {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+        .left h2 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .right {
+            background: white;
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .right .toggle {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .right .toggle a {
+            text-decoration: none;
+            color: maroon;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        .right .toggle a.active {
+            color: black;
+        }
+        .right form {
+            display: flex;
+            flex-direction: column;
+        }
+        .right form .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .right form .input-group i {
+            color: maroon;
+            margin-right: 10px;
+        }
+        .right form .input-group input, .right form .input-group select {
+            border: none;
+            outline: none;
+            flex: 1;
+        }
+        .right form .input-group .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            color: maroon;
+        }
+        .right form .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .right form .checkbox-group input {
+            margin-right: 10px;
+        }
+        .right form button {
+            background: maroon;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+            }
+            .left, .right {
+                width: 100%;
+            }
+            .right {
+                padding: 20px;
+            }
+        }

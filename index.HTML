@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Hubungkan CSS -->
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="left">
+            <i class="fas fa-user-circle"></i>
+            <h2>LOGIN</h2>
+        </div>
+        <div class="right">
+            <div class="toggle">
+                <a href="#" class="active">LOGIN</a>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password">
+                    <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user-tag"></i>
+                    <select id="role">
+                        <option value="candidate">Candidate</option>
+                    </select>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">I have accepted the terms and conditions</label>
+                </div>
+                <button type="submit">LOGIN</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Hubungkan JavaScript -->
+</body>
+</html>
