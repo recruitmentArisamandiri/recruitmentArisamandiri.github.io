@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxfXpNsbvPw2DVV__gUYA7uXHerbZRk2r1kW9g28lM4mrXaArJ02Pw4a0TG6D1tFmLkw/exec"; // Ganti dengan URL Web App dari Google Apps Script
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwqsoZyUxLz8sP0u-SIwjuW-hqvme21v8aTYIddK6qaoq9YbCnc6WL4pdYd5saKlbUwIw/exec"; // Ganti dengan URL Web App dari Google Apps Script
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
