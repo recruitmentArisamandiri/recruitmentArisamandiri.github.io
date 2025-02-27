@@ -1,62 +1,48 @@
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwqsoZyUxLz8sP0u-SIwjuW-hqvme21v8aTYIddK6qaoq9YbCnc6WL4pdYd5saKlbUwIw/exec"; // Ganti dengan URL Web App dari Google Apps Script
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-zGyXAoKDizcMFHa6_-FWtMH56Yw178uc-nWBNPINDjEDXYZng71rcYshKzMVpelJ8A/exec";
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+async function login(event) {
+    event.preventDefault(); // Mencegah form submit default
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+    // Ambil nilai input dari form
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const role = document.querySelector("select").value;
+    // Periksa jika email dan password kosong
+    if (!email || !password) {
+        alert("Silakan masukkan email dan password!");
+        return;
+    }
 
-        if (!email || !password) {
-            alert("Email dan password wajib diisi!");
-            return;
+    try {
+        // Kirim data ke Google Apps Script menggunakan metode POST
+        const response = await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email: email, password: password })
+        });
+
+        // Periksa apakah respons berhasil
+        if (!response.ok) {
+            throw new Error(`Server Error: ${response.status}`);
         }
 
-        login(email, password, role);
-    });
-});
+        // Ambil hasil dari server
+        const result = await response.json();
 
-function login(email, password, role) {
-    fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        mode: "cors",  // **Tambahkan ini untuk menangani CORS**
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password, role })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Response dari server:", data);
-
-        if (data.success) {
-            alert("Login berhasil! Selamat datang, " + email);
-            window.location.href = "dashboard.html"; // Redirect ke halaman dashboard
+        if (result.status === "success") {
+            alert("Login berhasil!");
+            // Redirect ke halaman lain jika diperlukan
+            window.location.href = "dashboard.html"; 
         } else {
-            alert("Login gagal! Periksa email atau password.");
+            alert("Login gagal! " + result.message);
         }
-    })
-    .catch(error => {
-        console.error("Terjadi kesalahan saat menghubungi server:", error);
-        alert("Terjadi kesalahan saat menghubungi server!");
-    });
-}
-
-// Fungsi untuk toggle visibility password
-function togglePassword() {
-    var passwordField = document.getElementById("password");
-    var passwordToggle = document.querySelector(".toggle-password");
-
-    if (passwordField.type === "password") {
-        passwordField.type = "text";
-        passwordToggle.classList.remove("fa-eye");
-        passwordToggle.classList.add("fa-eye-slash");
-    } else {
-        passwordField.type = "password";
-        passwordToggle.classList.remove("fa-eye-slash");
-        passwordToggle.classList.add("fa-eye");
+    } catch (error) {
+        console.error("Terjadi kesalahan:", error);
+        alert("Terjadi kesalahan saat menghubungi server.");
     }
 }
+
+// Tambahkan event listener ke tombol login
+document.querySelector("form").addEventListener("submit", login);
